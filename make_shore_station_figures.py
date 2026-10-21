@@ -14,17 +14,29 @@ import pandas as pd
 import mlml_data_path
 import matplotlib.dates as mdates
 
-# import sys
-# sys.path.append('../../CeNCOOS_data_processing/')
+import sys
+sys.path.append('mlml-shorestation-processing/msp/moss_landing/')
+from mlml import read_csv_data, cleanup_raw, add_flags
 
 # %% [markdown]
 # ### Load dataset
 
 # %%
-nc_dir = 'Data/MLML_shore_stations/moss_landing/netcdf/'
+station_dir = 'Data/MLML_shore_stations/moss_landing/csv/'
 
-ds = xr.open_mfdataset(nc_dir+'*.nc')
-ds.load()
+# read data in csv files to xarray dataset
+ds = read_csv_data(station_dir, format='dataset')
+
+# specify location of readme file and add metadata to dataset
+# readme_file = station_dir + '1_README.TXT'
+# d = add_metadata(ds, station, readme_file)
+
+# Additional processing
+ds = cleanup_raw(ds)
+ds = add_flags(ds)
+
+# ds = xr.open_mfdataset(nc_dir+'*.nc')
+# ds.load()
 
 # %% [markdown]
 # ### QARTOD and calibration
