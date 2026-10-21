@@ -8,8 +8,6 @@ jobs:
     steps:
       - name: Check out the repository to the runner
         uses: actions/checkout@v6
-      - name: Make the script files executable
-        run: chmod +x update_figures.sh
       - name: Setup conda environment
         uses: conda-incubator/setup-miniconda@v4
         with:
@@ -21,6 +19,9 @@ jobs:
           show-channel-urls: true
       - run: |
           conda install xarray pandas
+          conda activate py312
+      - name: Make the script files executable
+        run: chmod +x update_figures.sh
       - name: Run the scripts
         run: |
           ./update_figures.sh
