@@ -21,7 +21,7 @@ jobs:
           channel-priority: flexible
           show-channel-urls: true
       - run: |
-          conda install xarray pandas
+          conda install xarray pandas matplotlib
           conda init bash
           exec bash
           conda activate py312
