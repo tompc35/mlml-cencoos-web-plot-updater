@@ -22,7 +22,7 @@ jobs:
           show-channel-urls: true
       - run: |
           conda install xarray pandas
-          conda init py312
+          conda init bash
           exec bash
           conda activate py312
       - name: Make the script files executable
