@@ -176,7 +176,7 @@ plt.plot(np.array([anom['time'].values[0],
 plt.title('MLML temperature - monthly anomalies')
 plt.ylabel('$T$ anomaly [$^o$C]')
 plt.tight_layout()
-plt.savefig('figures/interannual_T.png')
+plt.savefig('figures/interannual_T.png', dpi=800)
 
 # %%
 
