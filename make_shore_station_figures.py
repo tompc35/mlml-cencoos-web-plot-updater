@@ -144,6 +144,7 @@ axf.set_yticks(np.arange(45, 70, 5))
 axf.set_ylim(y1*9/5+32, y2*9/5+32)
 axf.set_ylabel('[$\\degree$F]')
 ax.legend(fontsize=6)
+plt.tight_layout()
 plt.savefig('figures/temperature_recent_seasonal_historical.png')
 
 # %%
