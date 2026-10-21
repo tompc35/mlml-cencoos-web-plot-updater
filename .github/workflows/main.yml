@@ -5,6 +5,9 @@ on: workflow_dispatch
 jobs:
   example-job:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash -el {0}
     steps:
       - name: Check out the repository to the runner
         uses: actions/checkout@v6
@@ -19,6 +22,8 @@ jobs:
           show-channel-urls: true
       - run: |
           conda install xarray pandas
+          conda init py312
+          exec bash
           conda activate py312
       - name: Make the script files executable
         run: chmod +x update_figures.sh
