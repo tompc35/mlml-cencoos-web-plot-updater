@@ -8,7 +8,7 @@ ls
 cd ../../..
 pwd
 ls
-ls Data/MLML_shore_stations/moss_landing/
+ls Data/MLML_shore_stations/moss_landing/netcdf/
 python make_shore_station_figures.py
 git pull origin main
 git add figures/
