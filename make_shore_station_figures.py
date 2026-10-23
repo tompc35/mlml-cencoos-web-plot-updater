@@ -13,6 +13,7 @@ import xarray as xr
 import pandas as pd
 import mlml_data_path
 import matplotlib.dates as mdates
+import os
 
 import sys
 sys.path.append('mlml-shorestation-processing/msp/moss_landing/')
@@ -133,6 +134,9 @@ plt.plot(dates, climd10pct['temp_smooth'], linestyle='--', color='k', linewidth=
 fmt = mdates.DateFormatter('%b')
 plt.gca().xaxis.set_major_formatter(fmt)
 plt.xlim([np.datetime64('2026-01-01'), np.datetime64('2026-12-31')])
+
+if os.path.exists('figures/') == False:
+    os.mkdir('figures/')
 
 # %%
 fig,ax = plt.subplots(figsize=(8, 3))
